@@ -1,2 +1,3 @@
 <?php
-echo "bonjour";
+$content = "heyo";
+require "gabarit.php";
