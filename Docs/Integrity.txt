@@ -1,0 +1,3 @@
+cd .\Users\Dmitri.MEILI\Downloads\
+Get-FileHash .\mysql-workbench-community-8.0.28-winx64.msi
+Get-FileHash .\mysql-workbench-community-8.0.28-winx64.msi -Algorithm MD5
