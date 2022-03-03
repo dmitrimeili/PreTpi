@@ -31,7 +31,7 @@ $title="signup";
                             <button type="button" class="btn btn-def btn-block">Sign up</button>
                         </div>
                         <div class="form-group text-center">
-                            <a href="index.php?action=Signup">Login</a>
+                            <a href="index.php?action=Login">Login</a>
                         </div>
                     </form>
                 </div>

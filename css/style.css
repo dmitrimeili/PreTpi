@@ -1,12 +1,7 @@
 body{
-    background: #00589F;
-    filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#00589F', endColorstr='#0073CF', GradientType=0);
-    background: -webkit-linear-gradient(to bottom, #00589F 50%, #0073CF) !important;
-    background: -moz-linear-gradient(to bottom, #00589F 50%, #0073CF) !important;
-    background: -ms-linear-gradient(to bottom, #00589F 50%, #0073CF) !important;
-    background: -o-linear-gradient(to bottom, #00589F 50%, #0073CF) !important;
-    background: linear-gradient(to bottom, #00589F 50%, #0073CF) !important;
+
     color: white;
+    min-height: 100vh;
 }
 
 div.well{
@@ -33,4 +28,28 @@ div.well{
     width:200px;
     height:30px;
     background-image:url('http://placehold.it/200x30/000000/ffffff/&text=BRAND+LOGO');
+}
+.btn-group button {
+    background-color: darkgrey; /* Green background */
+    border: 1px mediumpurple; /* Green border */
+    color: white; /* White text */
+    padding: 10px 24px; /* Some padding */
+    cursor: pointer; /* Pointer/hand icon */
+
+}
+
+.btn-group button:not(:last-child) {
+    border-right: none; /* Prevent double borders */
+}
+
+/* Clear floats (clearfix hack) */
+.btn-group:after {
+    content: "";
+    clear: both;
+    display: table;
+}
+
+/* Add a background color on hover */
+.btn-group button:hover {
+    background-color: mediumpurple;
 }

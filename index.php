@@ -12,6 +12,9 @@ switch ($page){
     case"Signup";
         Signup();
     break;
+    case"Videogames";
+
+        break;
 
     default:
         Home();

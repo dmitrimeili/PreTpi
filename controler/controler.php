@@ -9,3 +9,5 @@ function Login(){
 function Signup(){
     require_once 'view/signup.php';
 }
+
+
