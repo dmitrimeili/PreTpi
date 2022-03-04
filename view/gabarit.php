@@ -47,6 +47,12 @@
         </ul>
     </div>
 </nav>
+<div class="btn-group" style="width:100%; text-align: center ">
+    <a href="index.php?action=Videogames"> <button style="width:24%" >Jeux Video</button></a>
+    <a href="index.php?action=Series"><button style="width:24%">Série</button></a>
+    <a href="index.php?action=Films"> <button style="width:24%">Film</button></a>
+    <a href="index.php?action=Books"><button style="width:24%">Livre</button></a>
+</div>
 <div>
     <?= $content;?>
 </div>

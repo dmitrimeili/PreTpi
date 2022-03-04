@@ -11,7 +11,7 @@ $title="signup";
     <div class="container">
         <div class="row">
             <div class="Absolute-Center is-Responsive">
-                <img src="images">
+
                 <div id="logo-container"></div>
                 <div class="col-sm-12 col-md-10 col-md-offset-1 w-25 p-3 " >
                     <form action="" id="signupForm">

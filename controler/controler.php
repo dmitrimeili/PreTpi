@@ -9,5 +9,18 @@ function Login(){
 function Signup(){
     require_once 'view/signup.php';
 }
+function Videogames(){
+    require_once 'view/videogames.php';
+}
+function Films(){
+    require_once 'view/films.php';
+}
+function Series(){
+    require_once 'view/series.php';
+}
+function Books(){
+    require_once 'view/books.php';
+}
+
 
 

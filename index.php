@@ -13,9 +13,17 @@ switch ($page){
         Signup();
     break;
     case"Videogames";
-
-        break;
-
+        Videogames();
+    break;
+    case"Films";
+        Films();
+    break;
+    case"Series";
+        Series();
+    break;
+    case"Books";
+        Books();
+    break;
     default:
         Home();
     break;
