@@ -1,6 +1,8 @@
 <?php
+require_once 'model/model.php';
 
 function home(){
+    $reviews = getAllReviews();
     require_once 'view/home.php';
 }
 function Login(){
@@ -20,6 +22,9 @@ function Series(){
 }
 function Books(){
     require_once 'view/books.php';
+}
+function ReviewDetails(){
+    require_once 'view/detailedreviews.php';
 }
 
 

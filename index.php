@@ -24,6 +24,9 @@ switch ($page){
     case"Books";
         Books();
     break;
+    case"ReviewDetails";
+        ReviewDetails();
+    break;
     default:
         Home();
     break;
