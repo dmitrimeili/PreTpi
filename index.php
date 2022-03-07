@@ -25,7 +25,8 @@ switch ($page){
         Books();
     break;
     case"ReviewDetails";
-        ReviewDetails();
+        $reviewid = $_GET['id'];
+        ReviewDetails($reviewid);
     break;
     default:
         Home();

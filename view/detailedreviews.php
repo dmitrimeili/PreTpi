@@ -8,7 +8,9 @@ ob_start();
 $title="ReviewDetails";
 
 ?>
-
+<div>
+    Titre : <?= $review['title'] ?>
+</div>
 <?php
 $content = ob_get_clean();
 require "gabarit.php";
