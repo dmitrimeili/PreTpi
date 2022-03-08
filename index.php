@@ -3,6 +3,10 @@
 session_start();
 require "controler/controler.php";
 
+if(isset($_POST["email"])){
+    extract($_POST);
+}
+
 $page = $_GET["action"];
 switch ($page){
 
@@ -13,6 +17,7 @@ switch ($page){
         Signup();
     break;
     case"CreateAccount";
+    var_dump($_POST);
     $truePassword = $newpassword;//password in clear
     $newpassword = password_hash($newpassword,PASSWORD_DEFAULT);//Hashing password
     $blocked = "0";
