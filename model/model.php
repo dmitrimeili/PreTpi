@@ -2,9 +2,10 @@
 
 function getAllReviews()
 {
-    require".const.php";
-    $dbh = callPDO();
+
+
     try {
+        $dbh = callPDO();
         $query = 'SELECT * FROM pretpi.reviews ';
         $statement = $dbh->prepare($query);//prepare query
         $statement->execute();//execute query
@@ -19,9 +20,9 @@ function getAllReviews()
 }
 function getReview($id)
 {
-    require".const.php";
-    $dbh = callPDO();
+
     try {
+        $dbh = callPDO();
         $query = 'SELECT * FROM pretpi.reviews where id = :id';
         $statement = $dbh->prepare($query);//prepare query
         $statement->execute(['id'=> $id]);//execute query
@@ -33,6 +34,25 @@ function getReview($id)
         print "Error!: " . $e->getMessage() . "<br/>";
         return null;
     }
+}
+function addAnItem($table){
+    try {
+        $dbh = callPDO();
+        $query = "INSERT INTO pretpi.$table";
+        $statement = $dbh->prepare($query);//prepare query
+        $statement->execute();//execute query
+        $id = $dbh->lastInsertId();
+        $dbh = null;
+        return $id;
+    } catch (PDOException $e){
+        print "Error!: " . $e->getMessage() . "<br/>";
+        return null;
+    }
+
+}
+function addUser($user){
+    addAnItem("users (name,surname,email,password,Blocked,Roles_id)
+    Values ('{$user["name"]}', '{$user["surname"]}','{$user["email"]}','{$user["password"]}','{$user["Blocked"]}','{$user["Roles_id"]}')");
 }
 function callPDO()
 {

@@ -17,6 +17,18 @@ function Login(){
 function Signup(){
     require_once 'view/signup.php';
 }
+function CreateAccount($newname,$newsurname,$newemail,$newpassword,$blocked,$rolesid,$truePassword)
+{
+    $newUser = [
+        "name" => $newname,
+        "surname" => $newsurname,
+        "email" => $newemail,
+        "password" => $newpassword,
+        "Blocked" => $blocked,
+        "Roles_id" => $rolesid
+    ];
+    addUser($newUser); //Add user in datasheet
+}
 function Videogames(){
     require_once 'view/videogames.php';
 }

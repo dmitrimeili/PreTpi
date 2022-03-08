@@ -14,7 +14,7 @@ $title="signup";
 
                 <div id="logo-container"></div>
                 <div class="col-sm-12 col-md-10 col-md-offset-1 w-25 p-3 " >
-                    <form action="" id="signupForm">
+                    <form action="index.php?action=CreateAccount" method="post" id="signupForm">
                         <div class="form-group ">
                             <input class="form-control" type="text" name='name' placeholder="name"/>
                         </div>
@@ -22,13 +22,13 @@ $title="signup";
                             <input class="form-control" type="text" name='surname' placeholder="surname"/>
                         </div>
                         <div class="form-group " >
-                            <input class="form-control" type="text" name='username' placeholder="username"/>
+                            <input class="form-control" type="text" name='email' placeholder="email"/>
                         </div>
                         <div class="form-group  ">
                             <input class="form-control" type="password" name='password' placeholder="password"/>
                         </div>
                         <div class="form-group">
-                            <button type="button" class="btn btn-def btn-block">Sign up</button>
+                           <input type="submit" value="Signup">
                         </div>
                         <div class="form-group text-center">
                             <a href="index.php?action=Login">Login</a>
