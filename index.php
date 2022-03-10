@@ -13,17 +13,26 @@ switch ($page){
     case"Login";
         Login();
     break;
+    case"tryLogin";
+        $email = $_POST['email'];
+        $password = $_POST['password'];
+
+        tryLogin($email,$password);
+    break;
     case"Signup";
         Signup();
     break;
     case"CreateAccount";
-    var_dump($_POST);
-    $truePassword = $newpassword;//password in clear
-    $newpassword = password_hash($newpassword,PASSWORD_DEFAULT);//Hashing password
-    $blocked = "0";
-    $rolesid = "2";
-    CreateAccount($newname,$newsurname,$newemail,$newpassword,$blocked,$rolesid,$truePassword);
-
+        var_dump($_POST);
+        $newfirstname = $_POST['firstname'];
+        $newlastname = $_POST['lastname'];
+        $newemail = $_POST['email'];
+        $truePassword = $_POST['password'];
+        $truePassword = $newpassword;//password in clear
+        $newpassword = password_hash('test',PASSWORD_DEFAULT);//Hashing password
+        $blocked = "0";
+        $rolesid = "2";
+        CreateAccount($newfirstname,$newlastname,$newemail,$newpassword,$blocked,$rolesid);
     break;
     case"Videogames";
         Videogames();

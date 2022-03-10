@@ -13,10 +13,10 @@ $title="login";
             <div class="Absolute-Center is-Responsive">
                 <div id="logo-container"></div>
                 <div class="col-sm-12 col-md-10 col-md-offset-1 w-25 p-3 " >
-                    <form action="" id="loginForm">
+                    <form action="index.php?action=tryLogin" id="loginForm" method="post">
                         <div class="form-group input-group" >
                             <span class="input-group-addon"><i class="glyphicon glyphicon-user"></i></span>
-                            <input class="form-control" type="text" name='username' placeholder="username"/>
+                            <input class="form-control" type="text" name='email' placeholder="email"/>
                         </div>
                         <div class="form-group input-group ">
                             <span class="input-group-addon"><i class="glyphicon glyphicon-lock"></i></span>
@@ -24,7 +24,7 @@ $title="login";
                         </div>
 
                         <div class="form-group">
-                            <button type="button" class="btn btn-def btn-block">Login</button>
+                            <input type="submit" id="submit" value="Login">
                         </div>
                         <div class="form-group text-center">
                             <a href="index.php?action=Signup">Create an account</a>

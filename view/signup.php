@@ -16,10 +16,10 @@ $title="signup";
                 <div class="col-sm-12 col-md-10 col-md-offset-1 w-25 p-3 " >
                     <form action="index.php?action=CreateAccount" method="post" id="signupForm">
                         <div class="form-group ">
-                            <input class="form-control" type="text" name='name' placeholder="name"/>
+                            <input class="form-control" type="text" name='firstname' placeholder="firstname"/>
                         </div>
                         <div class="form-group ">
-                            <input class="form-control" type="text" name='surname' placeholder="surname"/>
+                            <input class="form-control" type="text" name='lastname' placeholder="lastname"/>
                         </div>
                         <div class="form-group " >
                             <input class="form-control" type="text" name='email' placeholder="email"/>
