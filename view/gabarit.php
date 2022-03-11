@@ -15,7 +15,7 @@
 </body>
 </html>
  */
-
+require_once "helpers/helpers.php";
 ?>
 
 <!DOCTYPE html>
@@ -42,17 +42,18 @@
             <li><a href="#">Page 2</a></li>
         </ul>
         <ul class="nav navbar-nav navbar-right">
-            <li><a href="index.php?action=Signup"><span class="glyphicon glyphicon-user"></span> Sign Up</a></li>
-            <li><a href="index.php?action=Login"><span class="glyphicon glyphicon-log-in"></span> Login</a></li>
+            <?= login_bt();?>
         </ul>
     </div>
 </nav>
+
 <div class="btn-group" style="width:100%; text-align: center ">
     <a href="index.php?action=Videogames"> <button style="width:24%" >Jeux Video</button></a>
     <a href="index.php?action=Series"><button style="width:24%">Série</button></a>
     <a href="index.php?action=Films"> <button style="width:24%">Film</button></a>
     <a href="index.php?action=Books"><button style="width:24%">Livre</button></a>
 </div>
+<?= flashMessage(); ?>
 <div>
     <?= $content;?>
 </div>

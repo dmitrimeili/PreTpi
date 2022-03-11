@@ -22,8 +22,7 @@ function Login()
 function tryLogin($email, $password)
 {
     $users = getUsers();//Puts the values of the data sheet users in a table
-    var_dump($_POST);
-    var_dump($_GET);
+
     foreach ($users as $user) {
         //If the username and the password are true the user connects to the session
         if ($user["email"] == $email && password_verify($password, $user["password"])) {
@@ -34,7 +33,6 @@ function tryLogin($email, $password)
             $_SESSION["password"] = $user["password"];
             $_SESSION["Blocked"] = $user["Blocked"];
             $_SESSION["Roles_id"] = $user["Roles_id"];
-            var_dump($_SESSION);
             Home(); //Return to home page
         }
     }
@@ -45,22 +43,44 @@ function tryLogin($email, $password)
     }
 }
 
+function Logout()
+{
+    session_unset();
+    $_SESSION["flashmessage"] = "Vous êtes déconnecté";
+    Home();
+
+}
+
 function Signup()
 {
     require_once 'view/signup.php';
 }
 
-function CreateAccount($newfirstname, $newlastname, $newemail, $newpassword, $blocked, $rolesid)
+function CreateAccount($newfirstname, $newlastname, $newemail, $newpassword, $blocked, $rolesid, $truePassword)
 {
-    $newUser = [
-        "firstname" => $newfirstname,
-        "lastname" => $newlastname,
-        "email" => $newemail,
-        "password" => $newpassword,
-        "Blocked" => $blocked,
-        "Roles_id" => $rolesid
-    ];
-    addUser($newUser); //Add user in datasheet
+    $users = getUsers();
+
+    foreach ($users as $user) {
+        //Check if email already exist in db
+        if ($user["email"] == $newemail) {
+            $_SESSION["flashmessage"] = "l'email est déja utilisé";
+            $login = false;
+            Signup();
+        }
+    }
+    if (!isset($login)) {
+        $newUser = [
+            "firstname" => $newfirstname,
+            "lastname" => $newlastname,
+            "email" => $newemail,
+            "password" => $newpassword,
+            "Blocked" => $blocked,
+            "Roles_id" => $rolesid
+        ];
+        addUser($newUser); //Add user in datasheet
+        tryLogin($newemail, $truePassword);
+    }
+
 }
 
 function Videogames()
