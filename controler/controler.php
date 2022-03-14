@@ -46,6 +46,7 @@ function tryLogin($email, $password)
 function Logout()
 {
     session_unset();
+    session_destroy();
     $_SESSION["flashmessage"] = "Vous êtes déconnecté";
     Home();
 
@@ -85,21 +86,25 @@ function CreateAccount($newfirstname, $newlastname, $newemail, $newpassword, $bl
 
 function Videogames()
 {
+    $reviews = getAllReviews();
     require_once 'view/videogames.php';
 }
 
 function Films()
 {
+    $reviews = getAllReviews();
     require_once 'view/films.php';
 }
 
 function Series()
 {
+    $reviews = getAllReviews();
     require_once 'view/series.php';
 }
 
 function Books()
 {
+    $reviews = getAllReviews();
     require_once 'view/books.php';
 }
 

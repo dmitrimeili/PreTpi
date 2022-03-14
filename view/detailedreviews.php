@@ -9,7 +9,8 @@ $title="ReviewDetails";
 
 ?>
 <div>
-    Titre : <?= $review['title'] ?>
+    Titre : <?= $review['title'] ?><br>
+    Jeux : <?= $review['name'] ?>
 </div>
 <?php
 $content = ob_get_clean();

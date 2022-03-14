@@ -1,0 +1,3 @@
+select * from videogamecategories_classifies_videogames vcv
+inner join videogamecategories vc ON VideoGameCategories_id = vc.id
+inner join videogames vg ON VideoGames_id = vg.id
