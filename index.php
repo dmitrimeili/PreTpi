@@ -16,7 +16,6 @@ switch ($page) {
     case"tryLogin";
         $email = $_POST['email'];
         $password = $_POST['password'];
-
         tryLogin($email, $password);
         break;
     case"Signup";
@@ -47,7 +46,16 @@ switch ($page) {
         break;
     case"ReviewDetails";
         $reviewid = $_GET['id'];
-        ReviewDetails($reviewid);
+        $reviewfilm = $_GET['Films_id'];
+        $reviewVideogames = $_GET['VideoGames_id'];
+        if($reviewfilm != ""){
+            ReviewDetailsFilms($reviewid);
+        }else if($reviewVideogames != ""){
+            ReviewDetailsGames($reviewid);
+        }
+
+
+
         break;
     case "Logout";
         Logout();

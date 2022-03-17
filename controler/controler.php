@@ -6,12 +6,16 @@ function Home()
     $reviews = getAllReviews();
     require_once 'view/home.php';
 }
-
-function ReviewDetails($id)
+function ReviewDetailsFilms($id)
 {
-    $review = getReview($id);
+    $review = getReviewFilms($id);
+    require_once 'view/detailedreviewsfilms.php';
+}
+function ReviewDetailsGames($id)
+{
+    $review = getReviewGames($id);
 
-    require_once 'view/detailedreviews.php';
+    require_once 'view/detailedreviewsvideogames.php';
 }
 
 function Login()
