@@ -46,7 +46,9 @@ function getReviewGames($id)
         $dbh = callPDO();
         $query = 'select * from reviews
                     inner join videogames ON VideoGames_id = videogames.id
-                    inner join developers ON Developers_id = developers.id
+                    inner join developers ON videogames.Developers_id = developers.id
+                    inner join videogamecategories_classifies_videogames vcv ON reviews.VideoGames_id = vcv.VideoGames_id
+                    inner join videogamecategories vc ON vcv.VideoGameCategories_id = vc.id
                     where reviews.id = :id';
         $statement = $dbh->prepare($query);//prepare query
         $statement->execute(['id' => $id]);//execute query
