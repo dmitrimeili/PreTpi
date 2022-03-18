@@ -33,7 +33,8 @@ switch ($page) {
         CreateAccount($newfirstname, $newlastname, $newemail, $newpassword, $blocked, $rolesid, $truePassword);
         break;
     case"Videogames";
-        Videogames();
+        Videogames($_POST);
+        var_dump($_POST);
         break;
     case"Films";
         Films();
@@ -53,9 +54,6 @@ switch ($page) {
         }else if($reviewVideogames != ""){
             ReviewDetailsGames($reviewid);
         }
-
-
-
         break;
     case "Logout";
         Logout();

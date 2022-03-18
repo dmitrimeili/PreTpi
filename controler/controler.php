@@ -88,9 +88,15 @@ function CreateAccount($newfirstname, $newlastname, $newemail, $newpassword, $bl
 
 }
 
-function Videogames()
+function Videogames($post)
 {
-    $reviews = getAllReviews();
+    if(isset($post['type'])){
+        $reviews = getReviewByType(8);
+    }else{
+        $reviews = getAllReviews();
+    }
+
+    $platforms = getAllPlatforms();
     require_once 'view/videogames.php';
 }
 

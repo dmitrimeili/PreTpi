@@ -10,6 +10,15 @@ $title="Videogames";
 ?>
 <h1 >Videogames</h1>
     <div>
+        <form action="index.php?action=Videogames" method="post">
+        <select name="type">
+            <?php
+        foreach ($platforms as $platform) { //affiche les reviews?>
+            <option value=<?=$platform['type']?>><?=$platform['type']?></option>
+             <?php } ?>
+        </select>
+            <input type="submit" value="Submit">
+        </form>
         <?php
         foreach ($reviews as $review) { //affiche les reviews
             if ($review["VideoGames_id"] != "") {

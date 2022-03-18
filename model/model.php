@@ -5,10 +5,46 @@ function getAllReviews()
 
     try {
         $dbh = callPDO();
-        $query = 'SELECT * FROM reviews ';
+        $query = 'SELECT * FROM reviews  ';
         $statement = $dbh->prepare($query);//prepare query
         $statement->execute();//execute query
         $queryResult = $statement->fetchAll(PDO::FETCH_ASSOC);//prepare result for client
+        $dbh = null;
+        if ($debug) var_dump($queryResult);
+        return $queryResult;
+    } catch (PDOException $e) {
+        print "Error!: " . $e->getMessage() . "<br/>";
+        return null;
+    }
+}
+function getAllPlatforms()
+{
+    try {
+        $dbh = callPDO();
+        $query = 'SELECT * FROM platforms ';
+        $statement = $dbh->prepare($query);//prepare query
+        $statement->execute();//execute query
+        $queryResult = $statement->fetchAll(PDO::FETCH_ASSOC);//prepare result for client
+        $dbh = null;
+        if ($debug) var_dump($queryResult);
+        return $queryResult;
+    } catch (PDOException $e) {
+        print "Error!: " . $e->getMessage() . "<br/>";
+        return null;
+    }
+}
+function  getReviewByType($id)
+{
+
+try {
+        $dbh = callPDO();
+        $query = ' select * from reviews
+inner join videogames ON reviews.VideoGames_id = videogames.id
+inner join platforms ON videogames.Platforms_id = platforms.id
+where platforms.id = :id ';
+        $statement = $dbh->prepare($query);//prepare query
+        $statement->execute(['id' => $id]);//execute query
+        $queryResult = $statement->fetch(PDO::FETCH_ASSOC);//prepare result for client
         $dbh = null;
         if ($debug) var_dump($queryResult);
         return $queryResult;
