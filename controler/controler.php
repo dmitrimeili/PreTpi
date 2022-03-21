@@ -91,7 +91,8 @@ function CreateAccount($newfirstname, $newlastname, $newemail, $newpassword, $bl
 function Videogames($post)
 {
     if(isset($post['type'])){
-        $reviews = getReviewByType(8);
+        var_dump($post);
+        $reviews = getReviewByType($post["type"]);
     }else{
         $reviews = getAllReviews();
     }
@@ -99,7 +100,14 @@ function Videogames($post)
     $platforms = getAllPlatforms();
     require_once 'view/videogames.php';
 }
+function CreateReviewVideogames($videogame,$title,$review)
+{
 
+    $videogames = getVideogames();
+    $categories = getAllVideogamesCategories();
+    $platforms = getAllPlatforms();
+    require_once 'view/createReviewVideogames.php';
+}
 function Films()
 {
     $reviews = getAllReviews();

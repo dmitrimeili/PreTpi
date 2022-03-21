@@ -14,21 +14,21 @@ $title="Videogames";
         <select name="type">
             <?php
         foreach ($platforms as $platform) { //affiche les reviews?>
-            <option value=<?=$platform['type']?>><?=$platform['type']?></option>
+            <option value=<?=$platform['id']?>><?=$platform['type']?></option>
              <?php } ?>
         </select>
             <input type="submit" value="Submit">
         </form>
         <?php
         foreach ($reviews as $review) { //affiche les reviews
-            if ($review["VideoGames_id"] != "") {
+            if (isset($review['VideoGames_id'])) {
                 ?>
 
                 <hr>
                 <div>
                     Titre : <?= $review["title"] ?><br>
                     <?= $review["review"] ?> &nbsp;&nbsp;&nbsp;&nbsp; Note : <?= $review["rating"] ?>/5<br>
-                    <a href="index.php?action=ReviewDetails&id=<?= $review['id'] ?>">
+                    <a href="index.php?action=ReviewDetails&id=<?= $review['id'] ?>&VideoGames_id=<?= $review['VideoGames_id']?>">
                         <button class="btn-group ">Détails</button>
                     </a>
                 </div>
@@ -36,6 +36,12 @@ $title="Videogames";
             <?php }
         } ?>
     </div>
+<br><br>
+<?php if (isset($_SESSION["firstname"]) ){?>
+<div class="btn-group" style="width:100%; text-align: right ">
+    <a href="index.php?action=CreateReviewVideogames"> <button style="width:24%" >Ajouter une critique</button></a>
+</div>
+    <?php }?>
 <?php
 $content = ob_get_clean();
 require "gabarit.php";

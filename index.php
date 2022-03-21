@@ -34,7 +34,13 @@ switch ($page) {
         break;
     case"Videogames";
         Videogames($_POST);
-        var_dump($_POST);
+        break;
+    case"CreateReviewVideogames";
+        $videogame = $_POST['videogame'];
+        $title = $_POST['title'];
+        $review = $_POST['review'];
+
+        CreateReviewVideogames($videogame,$title,$review);
         break;
     case"Films";
         Films();
@@ -49,9 +55,9 @@ switch ($page) {
         $reviewid = $_GET['id'];
         $reviewfilm = $_GET['Films_id'];
         $reviewVideogames = $_GET['VideoGames_id'];
-        if($reviewfilm != ""){
+        if ($reviewfilm != "") {
             ReviewDetailsFilms($reviewid);
-        }else if($reviewVideogames != ""){
+        } else if ($reviewVideogames != "") {
             ReviewDetailsGames($reviewid);
         }
         break;

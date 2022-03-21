@@ -19,7 +19,7 @@ $title = "Films";
                 <div>
                     Titre : <?= $review["title"] ?><br>
                     <?= $review["review"] ?> &nbsp;&nbsp;&nbsp;&nbsp; Note : <?= $review["rating"] ?>/5<br>
-                    <a href="index.php?action=ReviewDetails&id=<?= $review['id'] ?>">
+                    <a href="index.php?action=ReviewDetails&id=<?= $review['id'] ?>&Films_id=<?= $review['Films_id']?>">
                         <button class="btn-group ">Détails</button>
                     </a>
                 </div>
