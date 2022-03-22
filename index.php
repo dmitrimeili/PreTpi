@@ -44,6 +44,7 @@ switch ($page) {
         $title = $_POST['title'];
         $review = $_POST['review'];
         $email = $_SESSION['email'];
+        var_dump($videogame);
         CreateReviewVideogames($videogame,$title,$review);
         break;
     case"Films";

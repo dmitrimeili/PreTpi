@@ -95,8 +95,8 @@ function addUser($user)
 }
 function addAReview($review)
 {
-    addAnItem("reviews (title,review,rating,date,approuved,Users_id)
-    Values ('{$review["title"]}','{$review["review"]}','{$review["rating"]}','{$review["date"]}','{$review["approuved"]}','{$review["Users_id"]}')");
+    addAnItem("reviews (title,review,rating,date,approuved,Users_id,VideoGames_id)
+    Values ('{$review["title"]}','{$review["review"]}','{$review["rating"]}','{$review["date"]}','{$review["approuved"]}','{$review["Users_id"]}','{$review["VideoGames_id"]}')");
 }
 function getReviewByType($id)
 {

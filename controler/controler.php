@@ -116,7 +116,7 @@ function CreateReviewVideogamesPage()
 function CreateReviewVideogames($videogame, $title, $review)
 {
     $date = date('Y-m-d');
-   
+
     $addAReview =
         [
             "title" => $title,
@@ -124,13 +124,14 @@ function CreateReviewVideogames($videogame, $title, $review)
             "rating" => 5,
             "date" => $date,
             "approuved" => 1,
-            "Users_id" => $_SESSION['id']
+            "Users_id" => $_SESSION['id'],
+            "VideoGames_id" => $videogame
 
         ];
         addAReview($addAReview);
         Home();
 
-    var_dump($user['id']);
+
 
 }
 
