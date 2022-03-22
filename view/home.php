@@ -21,7 +21,8 @@ $title="home";
         </a>
     </div>
 
-<?php } ?>
+<?php }
+    var_dump($_SESSION["email"]);?>
 </div>
 
 

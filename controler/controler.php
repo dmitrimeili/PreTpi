@@ -6,11 +6,13 @@ function Home()
     $reviews = getAllReviews();
     require_once 'view/home.php';
 }
+
 function ReviewDetailsFilms($id)
 {
     $review = getReviewFilms($id);
     require_once 'view/detailedreviewsfilms.php';
 }
+
 function ReviewDetailsGames($id)
 {
     $review = getReviewGames($id);
@@ -37,6 +39,7 @@ function tryLogin($email, $password)
             $_SESSION["password"] = $user["password"];
             $_SESSION["Blocked"] = $user["Blocked"];
             $_SESSION["Roles_id"] = $user["Roles_id"];
+            $_SESSION["id"] = $user["id"];
             Home(); //Return to home page
         }
     }
@@ -90,17 +93,18 @@ function CreateAccount($newfirstname, $newlastname, $newemail, $newpassword, $bl
 
 function Videogames($post)
 {
-    if(isset($post['type'])){
+    if (isset($post['type'])) {
         var_dump($post);
         $reviews = getReviewByType($post["type"]);
-    }else{
+    } else {
         $reviews = getAllReviews();
     }
 
     $platforms = getAllPlatforms();
     require_once 'view/videogames.php';
 }
-function CreateReviewVideogames($videogame,$title,$review)
+
+function CreateReviewVideogamesPage()
 {
 
     $videogames = getVideogames();
@@ -108,6 +112,28 @@ function CreateReviewVideogames($videogame,$title,$review)
     $platforms = getAllPlatforms();
     require_once 'view/createReviewVideogames.php';
 }
+
+function CreateReviewVideogames($videogame, $title, $review)
+{
+    $date = date('Y-m-d');
+   
+    $addAReview =
+        [
+            "title" => $title,
+            "review" => $review,
+            "rating" => 5,
+            "date" => $date,
+            "approuved" => 1,
+            "Users_id" => $_SESSION['id']
+
+        ];
+        addAReview($addAReview);
+        Home();
+
+    var_dump($user['id']);
+
+}
+
 function Films()
 {
     $reviews = getAllReviews();

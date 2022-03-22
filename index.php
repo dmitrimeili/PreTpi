@@ -35,11 +35,15 @@ switch ($page) {
     case"Videogames";
         Videogames($_POST);
         break;
+    case"CreateReviewVideogamesPage";
+
+        CreateReviewVideogamesPage();
+        break;
     case"CreateReviewVideogames";
         $videogame = $_POST['videogame'];
         $title = $_POST['title'];
         $review = $_POST['review'];
-
+        $email = $_SESSION['email'];
         CreateReviewVideogames($videogame,$title,$review);
         break;
     case"Films";

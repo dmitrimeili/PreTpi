@@ -1,91 +1,75 @@
 <?php
 
+function getAllItems($table)
+{
+    try {
+        $dbh = callPDO();
+        $query = "SELECT * FROM $table";
+        $statement = $dbh->prepare($query);//prepare query
+        $statement->execute();//execute query
+        $queryResult = $statement->fetchAll(PDO::FETCH_ASSOC);//prepare result for client
+        $dbh = null;
+        if ($debug) var_dump($queryResult);
+        return $queryResult;
+    } catch (PDOException $e) {
+        print "Error!: " . $e->getMessage() . "<br/>";
+        return null;
+    }
+}
+
 function getAllReviews()
 {
     $table = getAllItems("reviews");
     return $table;
 
 }
+
 function getAllPlatforms()
 {
     $table = getAllItems("platforms");
     return $table;
 
 }
+
 function getAllVideogamesCategories()
 {
     $table = getAllItems("videogamecategories");
     return $table;
 }
+
 function getVideogames()
 {
     $table = getAllItems("videogames");
     return $table;
 }
-function  getReviewByType($id)
-{
 
-try {
-        $dbh = callPDO();
-        $query = ' select * from reviews
-        inner join videogames ON reviews.VideoGames_id = videogames.id
-        inner join platforms ON videogames.Platforms_id = platforms.id
-        where Platforms.id = :id ';
-        $statement = $dbh->prepare($query);//prepare query
-        $statement->execute(['id' => $id]);//execute query
-        $queryResult = $statement->fetch(PDO::FETCH_ASSOC);//prepare result for client
-        $dbh = null;
-        if ($debug) var_dump($queryResult);
-        return $queryResult;
-    } catch (PDOException $e) {
-        print "Error!: " . $e->getMessage() . "<br/>";
-        return null;
-    }
+function getUsers()
+{
+    $users = getAllItems("users");
+    return $users;
 }
-function getReviewFilms($id)
+
+function getAnItem($table)
 {
-
-
     try {
         $dbh = callPDO();
-        $query = 'select * from reviews
-                    inner join films ON Films_id = films.id
-                    inner join creators ON Creators_id = creators.id
-                    where reviews.id = :id';
-        $statement = $dbh->prepare($query);//prepare query
-        $statement->execute(['id' => $id]);//execute query
-        $queryResult = $statement->fetch(PDO::FETCH_ASSOC);//prepare result for client
+        $query = "SELECT * FROM $table";
+        $statment = $dbh->prepare($query);
+        $statment->execute();
+        $queryResults = $statment->fetch(PDO::FETCH_ASSOC);
+        return $queryResults;
         $dbh = null;
-        if ($debug) var_dump($queryResult);
-        return $queryResult;
     } catch (PDOException $e) {
         print "Error!: " . $e->getMessage() . "<br/>";
         return null;
     }
 }
-function getReviewGames($id)
+
+function getAUser($email)
 {
-
-
-    try {
-        $dbh = callPDO();
-        $query = 'select * from reviews
-                    inner join videogames ON VideoGames_id = videogames.id
-                    inner join developers ON videogames.Developers_id = developers.id
-                    inner join platforms ON videogames.Platforms_id = platforms.id
-                    where reviews.id = :id';
-        $statement = $dbh->prepare($query);//prepare query
-        $statement->execute(['id' => $id]);//execute query
-        $queryResult = $statement->fetch(PDO::FETCH_ASSOC);//prepare result for client
-        $dbh = null;
-        if ($debug) var_dump($queryResult);
-        return $queryResult;
-    } catch (PDOException $e) {
-        print "Error!: " . $e->getMessage() . "<br/>";
-        return null;
-    }
+    $user = getAnItem("users where email = '$email'");
+    return $user;
 }
-
 
 function addAnItem($table)
 {
@@ -109,15 +93,23 @@ function addUser($user)
     addAnItem("users (firstname,lastname,email,password,Blocked,Roles_id)
     Values ('{$user["firstname"]}', '{$user["lastname"]}','{$user["email"]}','{$user["password"]}','{$user["Blocked"]}','{$user["Roles_id"]}')");
 }
-
-function getAllItems($table)
+function addAReview($review)
 {
+    addAnItem("reviews (title,review,rating,date,approuved,Users_id)
+    Values ('{$review["title"]}','{$review["review"]}','{$review["rating"]}','{$review["date"]}','{$review["approuved"]}','{$review["Users_id"]}')");
+}
+function getReviewByType($id)
+{
+
     try {
         $dbh = callPDO();
-        $query = "SELECT * FROM $table";
+        $query = ' select * from reviews
+        inner join videogames ON reviews.VideoGames_id = videogames.id
+        inner join platforms ON videogames.Platforms_id = platforms.id
+        where Platforms.id = :id ';
         $statement = $dbh->prepare($query);//prepare query
-        $statement->execute();//execute query
-        $queryResult = $statement->fetchAll(PDO::FETCH_ASSOC);//prepare result for client
+        $statement->execute(['id' => $id]);//execute query
+        $queryResult = $statement->fetch(PDO::FETCH_ASSOC);//prepare result for client
         $dbh = null;
         if ($debug) var_dump($queryResult);
         return $queryResult;
@@ -127,11 +119,51 @@ function getAllItems($table)
     }
 }
 
-function getUsers()
+function getReviewFilms($id)
 {
-    $users = getAllItems("users");
-    return $users;
+
+
+    try {
+        $dbh = callPDO();
+        $query = 'select * from reviews
+                    inner join films ON Films_id = films.id
+                    inner join creators ON Creators_id = creators.id
+                    where reviews.id = :id';
+        $statement = $dbh->prepare($query);//prepare query
+        $statement->execute(['id' => $id]);//execute query
+        $queryResult = $statement->fetch(PDO::FETCH_ASSOC);//prepare result for client
+        $dbh = null;
+        if ($debug) var_dump($queryResult);
+        return $queryResult;
+    } catch (PDOException $e) {
+        print "Error!: " . $e->getMessage() . "<br/>";
+        return null;
+    }
 }
+
+function getReviewGames($id)
+{
+
+
+    try {
+        $dbh = callPDO();
+        $query = 'select * from reviews
+                    inner join videogames ON VideoGames_id = videogames.id
+                    inner join developers ON videogames.Developers_id = developers.id
+                    inner join platforms ON videogames.Platforms_id = platforms.id
+                    where reviews.id = :id';
+        $statement = $dbh->prepare($query);//prepare query
+        $statement->execute(['id' => $id]);//execute query
+        $queryResult = $statement->fetch(PDO::FETCH_ASSOC);//prepare result for client
+        $dbh = null;
+        if ($debug) var_dump($queryResult);
+        return $queryResult;
+    } catch (PDOException $e) {
+        print "Error!: " . $e->getMessage() . "<br/>";
+        return null;
+    }
+}
+
 
 function callPDO()
 {

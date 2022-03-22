@@ -27,7 +27,8 @@ $title = "CreateReviewVideogames";
         <?php
         foreach ($videogames as $videogame) { //affiche les categories?>
             <option value=<?= $videogame['id'] ?>><?= $videogame['name'] ?></option>
-        <?php } ?>
+        <?php }
+        ?>
     </select>
         </span>
         <br><br>

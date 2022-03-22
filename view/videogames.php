@@ -39,7 +39,7 @@ $title="Videogames";
 <br><br>
 <?php if (isset($_SESSION["firstname"]) ){?>
 <div class="btn-group" style="width:100%; text-align: right ">
-    <a href="index.php?action=CreateReviewVideogames"> <button style="width:24%" >Ajouter une critique</button></a>
+    <a href="index.php?action=CreateReviewVideogamesPage"> <button style="width:24%" >Ajouter une critique</button></a>
 </div>
     <?php }?>
 <?php
