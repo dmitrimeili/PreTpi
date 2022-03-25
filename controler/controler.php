@@ -113,7 +113,7 @@ function CreateReviewVideogamesPage()
     require_once 'view/createReviewVideogames.php';
 }
 
-function CreateReviewVideogames($videogame, $title, $review)
+function CreateReviewVideogames($videogame, $title, $review, $rating)
 {
     $date = date('Y-m-d');
 
@@ -121,7 +121,7 @@ function CreateReviewVideogames($videogame, $title, $review)
         [
             "title" => $title,
             "review" => $review,
-            "rating" => 5,
+            "rating" => $rating,
             "date" => $date,
             "approuved" => 1,
             "Users_id" => $_SESSION['id'],

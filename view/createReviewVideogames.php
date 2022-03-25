@@ -9,7 +9,7 @@ $title = "CreateReviewVideogames";
 
 ?>
 <h1>Ajouter une critique pour un jeux video</h1>
-<div>
+<div class="center">
     <form action="index.php?action=CreateReviewVideogames" method="post">
     <span><?php /*<select name="type">
         <?php

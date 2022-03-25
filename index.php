@@ -41,11 +41,12 @@ switch ($page) {
         break;
     case"CreateReviewVideogames";
         $videogame = $_POST['videogame'];
-        $title = $_POST['title'];
-        $review = $_POST['review'];
+        $title = htmlspecialchars($_POST['title']);
+        $review = htmlspecialchars($_POST['review']);
         $email = $_SESSION['email'];
-        var_dump($videogame);
-        CreateReviewVideogames($videogame,$title,$review);
+        $rating = $_POST['rate'];
+        var_dump($_POST);
+        CreateReviewVideogames($videogame,$title,$review,$rating);
         break;
     case"Films";
         Films();

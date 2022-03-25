@@ -93,11 +93,13 @@ function addUser($user)
     addAnItem("users (firstname,lastname,email,password,Blocked,Roles_id)
     Values ('{$user["firstname"]}', '{$user["lastname"]}','{$user["email"]}','{$user["password"]}','{$user["Blocked"]}','{$user["Roles_id"]}')");
 }
+
 function addAReview($review)
 {
     addAnItem("reviews (title,review,rating,date,approuved,Users_id,VideoGames_id)
     Values ('{$review["title"]}','{$review["review"]}','{$review["rating"]}','{$review["date"]}','{$review["approuved"]}','{$review["Users_id"]}','{$review["VideoGames_id"]}')");
 }
+
 function getReviewByType($id)
 {
 
@@ -109,7 +111,7 @@ function getReviewByType($id)
         where Platforms.id = :id ';
         $statement = $dbh->prepare($query);//prepare query
         $statement->execute(['id' => $id]);//execute query
-        $queryResult = $statement->fetch(PDO::FETCH_ASSOC);//prepare result for client
+        $queryResult = $statement->fetchAll(PDO::FETCH_ASSOC);//prepare result for client
         $dbh = null;
         if ($debug) var_dump($queryResult);
         return $queryResult;
