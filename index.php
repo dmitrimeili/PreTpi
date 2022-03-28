@@ -36,7 +36,6 @@ switch ($page) {
         Videogames($_POST);
         break;
     case"CreateReviewVideogamesPage";
-
         CreateReviewVideogamesPage();
         break;
     case"CreateReviewVideogames";
@@ -45,8 +44,7 @@ switch ($page) {
         $review = htmlspecialchars($_POST['review']);
         $email = $_SESSION['email'];
         $rating = $_POST['rate'];
-        var_dump($_POST);
-        CreateReviewVideogames($videogame,$title,$review,$rating);
+        CreateReviewVideogames($videogame, $title, $review, $rating);
         break;
     case"Films";
         Films();
@@ -69,6 +67,22 @@ switch ($page) {
         break;
     case "Logout";
         Logout();
+        break;
+    case "PersonalPage";
+        PersonalPage();
+        break;
+    case "ApprouveReview";
+        $reviewid = $_GET['id'];
+        $reviewTitle = $_GET['title'];
+        ApprouveReview($reviewid, $reviewTitle);
+        break;
+    case "BlockUser";
+        $userId = $_GET['id'];
+        BlockUser($userId);
+        break;
+        case "UnBlockUser";
+        $userId = $_GET['id'];
+        UnBlockUser($userId);
         break;
     default:
         Home();

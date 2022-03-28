@@ -8,7 +8,7 @@
 function login_bt()
 {
     if(isset($_SESSION["firstname"])){
-        return'<li><a href=""><span ></span> Bonjour ' . $_SESSION["firstname"] . '</a></li>
+        return'<li><a href="index.php?action=PersonalPage"><span ></span> Bonjour ' . $_SESSION["firstname"] . '</a></li>
                <li><a href="index.php?action=Logout"><span class="glyphicon glyphicon-log-out"></span> Logout</a></li>';
     }else{
         return '<li><a href="index.php?action=Signup"><span class="glyphicon glyphicon-user"></span> Sign Up</a></li>
@@ -24,4 +24,6 @@ function flashMessage()
     unset($_SESSION["flashmessage"]);
     return $res;
 }
+
+
 ?>

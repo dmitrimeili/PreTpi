@@ -10,7 +10,7 @@ $title="home";
 ?>
 
 <div>
-    <?php foreach ($reviews as $review){ //affiche les reviews?>
+    <?php foreach ($reviews as $review){ //affiche les review ?>
 
     <hr>
     <div >

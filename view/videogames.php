@@ -9,6 +9,11 @@ $title="Videogames";
 
 ?>
 <h1 >Videogames</h1>
+<?php if (isset($_SESSION["firstname"]) && $_SESSION['Blocked'] == 0 ){?>
+    <div class="btn-group" style="width:100%; text-align: right ">
+        <a href="index.php?action=CreateReviewVideogamesPage"> <button style="width:24%" >Ajouter une critique</button></a>
+    </div>
+<?php }?>
     <div>
         <form action="index.php?action=Videogames" method="post">
         <select name="type">
@@ -37,11 +42,7 @@ $title="Videogames";
         } ?>
     </div>
 <br><br>
-<?php if (isset($_SESSION["firstname"]) ){?>
-<div class="btn-group" style="width:100%; text-align: right ">
-    <a href="index.php?action=CreateReviewVideogamesPage"> <button style="width:24%" >Ajouter une critique</button></a>
-</div>
-    <?php }?>
+
 <?php
 $content = ob_get_clean();
 require "gabarit.php";

@@ -19,7 +19,13 @@ function getAllItems($table)
 
 function getAllReviews()
 {
-    $table = getAllItems("reviews");
+    $table = getAllItems("reviews where approuved = 1");
+    return $table;
+
+}
+function getAllReviewsNotApprouved()
+{
+    $table = getAllItems("reviews where approuved = 0");
     return $table;
 
 }
@@ -165,8 +171,34 @@ function getReviewGames($id)
         return null;
     }
 }
+function UpdateItem($table)
+{
+    try{
+        $dbh = callPDO();
+        $query = "UPDATE $table";
+        $statement = $dbh->prepare($query);
+        $statement->execute();
+        $queryResult = $statement->fetch();
+        $dbh = null;
+        return $queryResult;
+    }catch (PDOException $e){
+        print "Error!: " . $e->getMessage() . "<br/>";
+        return null;
+    }
+}
+function ApprouveAReview($id)
+{
+    UpdateItem("reviews set approuved = 1 where id = $id");
 
-
+}
+function BlockAUser($id)
+{
+    UpdateItem("users set Blocked = 1 where id = $id");
+}
+function UnBlockAUser($id)
+{
+    UpdateItem("users set Blocked = 0 where id = $id");
+}
 function callPDO()
 {
     require ".const.php";

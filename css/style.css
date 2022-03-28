@@ -97,5 +97,12 @@ div.well{
     display: flex;
     justify-content: center;
 }
-
+.left{
+    float: left;
+    width: 50%;
+}
+.right{
+    float: right;
+    width:50%;
+}
 /* Modified from: https://github.com/mukulkant/Star-rating-using-pure-css */

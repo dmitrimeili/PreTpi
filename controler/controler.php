@@ -94,7 +94,7 @@ function CreateAccount($newfirstname, $newlastname, $newemail, $newpassword, $bl
 function Videogames($post)
 {
     if (isset($post['type'])) {
-        var_dump($post);
+
         $reviews = getReviewByType($post["type"]);
     } else {
         $reviews = getAllReviews();
@@ -123,7 +123,7 @@ function CreateReviewVideogames($videogame, $title, $review, $rating)
             "review" => $review,
             "rating" => $rating,
             "date" => $date,
-            "approuved" => 1,
+            "approuved" => 0,
             "Users_id" => $_SESSION['id'],
             "VideoGames_id" => $videogame
 
@@ -151,6 +151,29 @@ function Books()
 {
     $reviews = getAllReviews();
     require_once 'view/books.php';
+}
+function PersonalPage()
+{
+    $reviews = getAllReviews();
+    $users = getUsers();
+    $notApprouvedreviews = getAllReviewsNotApprouved();
+    require_once 'view/personalPage.php';
+}
+function ApprouveReview($reviewid,$reviewTitle)
+{
+   ApprouveAReview($reviewid);
+   $_SESSION['flashmessage'] = "La Critique : ".$reviewTitle." est approuver";
+   PersonalPage();
+}
+function BlockUser($userId)
+{
+    BlockAUser($userId);
+    PersonalPage();
+}
+function UnBlockUser($userId)
+{
+    UnBlockAUser($userId);
+    PersonalPage();
 }
 
 
