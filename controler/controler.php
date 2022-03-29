@@ -85,12 +85,33 @@ function CreateAccount($newfirstname, $newlastname, $newemail, $newpassword, $bl
             "Blocked" => $blocked,
             "Roles_id" => $rolesid
         ];
+
         addUser($newUser); //Add user in datasheet
         tryLogin($newemail, $truePassword);
     }
 
 }
+function SendMail()
+{
 
+    // the message
+    $msg = "First line of text\nSecond line of text";
+// use wordwrap() if lines are longer than 70 characters
+    $msg = wordwrap($msg, 70);
+    $headers = "From:dmitri.meili@cpnv.ch" . "\r\n" ;
+        $newemail = $_SESSION['email'];
+// send email
+        mail("dmitri00@outlook.com", "My subject", $msg,$headers);
+    if(@mail("dmitri00@outlook.com", "My subject", $msg,$headers))
+    {
+        echo "Mail Sent Successfully";
+    }else{
+        echo "Mail Not Sent";
+    }
+    Home();
+
+
+}
 function Videogames($post)
 {
     if (isset($post['type'])) {
@@ -128,9 +149,8 @@ function CreateReviewVideogames($videogame, $title, $review, $rating)
             "VideoGames_id" => $videogame
 
         ];
-        addAReview($addAReview);
-        Home();
-
+    addAReview($addAReview);
+    Home();
 
 
 }
@@ -152,6 +172,7 @@ function Books()
     $reviews = getAllReviews();
     require_once 'view/books.php';
 }
+
 function PersonalPage()
 {
     $reviews = getAllReviews();
@@ -159,17 +180,20 @@ function PersonalPage()
     $notApprouvedreviews = getAllReviewsNotApprouved();
     require_once 'view/personalPage.php';
 }
-function ApprouveReview($reviewid,$reviewTitle)
+
+function ApprouveReview($reviewid, $reviewTitle)
 {
-   ApprouveAReview($reviewid);
-   $_SESSION['flashmessage'] = "La Critique : ".$reviewTitle." est approuver";
-   PersonalPage();
+    ApprouveAReview($reviewid);
+    $_SESSION['flashmessage'] = "La Critique : " . $reviewTitle . " est approuver";
+    PersonalPage();
 }
+
 function BlockUser($userId)
 {
     BlockAUser($userId);
     PersonalPage();
 }
+
 function UnBlockUser($userId)
 {
     UnBlockAUser($userId);

@@ -84,6 +84,9 @@ switch ($page) {
         $userId = $_GET['id'];
         UnBlockUser($userId);
         break;
+        case "SendMail";
+        SendMail();
+        break;
     default:
         Home();
         break;

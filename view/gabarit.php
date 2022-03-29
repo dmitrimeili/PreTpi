@@ -39,7 +39,7 @@ require_once "helpers/helpers.php";
         </div>
         <ul class="nav navbar-nav">
 
-            <li><a href="#">Page 2</a></li>
+            <li><a href="index.php?action=SendMail">Send Mail</a></li>
         </ul>
         <ul class="nav navbar-nav navbar-right">
             <?= login_bt();?>
