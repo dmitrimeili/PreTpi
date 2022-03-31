@@ -5,7 +5,7 @@
  * Project : PreTpi
  */
 
-function login_bt()
+function login_bt()// fonction pour modifiert les boutons de connexion quand on se login logout
 {
     if(isset($_SESSION["firstname"])){
         return'<li><a href="index.php?action=PersonalPage"><span ></span> Bonjour ' . $_SESSION["firstname"] . '</a></li>

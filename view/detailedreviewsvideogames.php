@@ -9,21 +9,25 @@ $title = "ReviewDetailsVideogames";
 
 ?>
 <div>
-    <div>
-        <h1><?= $review['name'] ?></h1><br>
-        <h2>Titre : <?= $review['title'] ?></h2>
-    </div>
-    Console : <?= $review['type'] ?><br>
-    Critique : <?= $review['review'] ?><br>
-    Utilisateur : <?= $review['email'] ?><br>
-    Date de sortie du jeux : <?= $review['releasedate'] ?><br>
-    Date de publication : <?= $review['date'] ?><br>
-    Developeur : <?= $review['companyname'] ?><br>
-    Genre :
-    <?php foreach ($videogames as $videogame) {
-        echo " " . $videogame['Genre'] . ", ";
-    }; ?>
 
+    <h1><?= $review['name'] ?></h1><br><br>
+    <div class="left" style="width: 75%">
+        <h2>Titre : <?= $review['title'] ?></h2><br>
+        <b> Utilisateur :</b> <?= $review['email'] ?><br><br>
+        <b>Date de publication :</b> <?= $review['date'] ?><br><br>
+        <b>Critique :</b><br> <?= $review['review'] ?><br>
+    </div>
+    <div class="right" style="width: 25%">
+
+        <h2>Information</h2>
+        <b>Console :</b> <?= $review['type'] ?><br><br>
+        <b>Date de sortie du jeux :</b> <?= $review['releasedate'] ?><br><br>
+        <b>Developeur :</b> <?= $review['companyname'] ?><br><br>
+        <b>Genre :</b>
+        <?php foreach ($videogames as $videogame) { // affiche les genre
+            echo " " . $videogame['Genre'] . ", ";
+        }; ?>
+    </div>
 </div>
 <?php
 $content = ob_get_clean();

@@ -115,7 +115,7 @@ function SendMail()
 }
 function Videogames($post)
 {
-    if (isset($post['type'])) {
+    if (isset($post['type'])) { // if the platform has been selected
 
         $reviews = getReviewByType($post["type"]);
     } else {
@@ -150,7 +150,7 @@ function CreateReviewVideogames($videogame, $title, $review, $rating)
             "VideoGames_id" => $videogame
 
         ];
-    addAReview($addAReview);
+    addAReview($addAReview);// info to add in the sql
     Home();
 
 

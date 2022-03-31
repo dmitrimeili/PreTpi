@@ -55,7 +55,7 @@ function getUsers()
     return $users;
 }
 
-function getAnItem($table)
+function getAnItem($table) // get un item
 {
     try {
         $dbh = callPDO();
@@ -149,7 +149,7 @@ function getReviewFilms($id)
     }
 }
 
-function getReviewGames($id)
+function getReviewGames($id)// get les critiques de jeux vidéo
 {
 
 
@@ -172,7 +172,7 @@ function getReviewGames($id)
         return null;
     }
 }
-function getCategoriesVideogames($id)
+function getCategoriesVideogames($id) // get les genre de jeux vidéo
 {
     try {
         $dbh = callPDO();
@@ -191,7 +191,7 @@ where VideoGames_id = :id;';
         return null;
     }
 }
-function UpdateItem($table)
+function UpdateItem($table)// mettre à jour un item dans la bdd
 {
     try{
         $dbh = callPDO();

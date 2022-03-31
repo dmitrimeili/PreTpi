@@ -40,8 +40,8 @@ switch ($page) {
         break;
     case"CreateReviewVideogames";
         $videogame = $_POST['videogame'];
-        $title = htmlspecialchars($_POST['title']);
-        $review = htmlspecialchars($_POST['review']);
+        $title = htmlspecialchars($_POST['title']); //utilise la fonction htmlspecialchars pour omettre les ' quand on execute l'sql
+        $review = htmlspecialchars($_POST['review']);//utilise la fonction htmlspecialchars pour omettre les ' quand on execute l'sql
         $email = $_SESSION['email'];
         $rating = $_POST['rate'];
         CreateReviewVideogames($videogame, $title, $review, $rating);
@@ -60,7 +60,7 @@ switch ($page) {
         $reviewfilm = $_GET['Films_id'];
         $reviewVideogames = $_GET['VideoGames_id'];
 
-        if ($reviewfilm != "") {
+        if ($reviewfilm != "") {  // condition pour afficher le critique par rapport au jeux video, film etc
             ReviewDetailsFilms($reviewid);
         } else if ($reviewVideogames != "") {
             ReviewDetailsGames($reviewid,$reviewVideogames);

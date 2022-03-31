@@ -11,7 +11,7 @@ $title = "Personal Page";
 
 <div>
 
-    <?php if ($_SESSION['Roles_id'] == 2) {
+    <?php if ($_SESSION['Roles_id'] == 2) { //if user
         foreach ($reviews as $review) { //affiche les reviews
             if ($_SESSION['id'] == $review['Users_id']) {
                 ?>
@@ -27,10 +27,10 @@ $title = "Personal Page";
 
             <?php }
         }
-    } elseif ($_SESSION['Roles_id'] == 1) {
+    } elseif ($_SESSION['Roles_id'] == 1) { // if admin
         ?>
         <div class="left"><?php
-        foreach ($notApprouvedreviews as $notApprouvedreview) { //affiche les reviews
+        foreach ($notApprouvedreviews as $notApprouvedreview) { //affiche les reviews pas accepter par l'admin
 
             var_dump($notApprouvedreview['id']); ?>
 
@@ -52,7 +52,7 @@ $title = "Personal Page";
         <div class="right">
             <div class="left">
             <h3>Utilisateur pas bloqué</h3>
-            <?php foreach ($users as $user) {
+            <?php foreach ($users as $user) { // affiche les utilisateur pas bloqué
                 if ($user['Blocked'] == 0){?>
                 <hr>
                 <div>
@@ -68,7 +68,7 @@ $title = "Personal Page";
             </div>
             <div class="right">
                 <h3>Utilisateur bloqué</h3>
-                <?php foreach ($users as $user) {
+                <?php foreach ($users as $user) { // affiche les utilisateur bloqué
                     if ($user['Blocked'] == 1){?>
                         <hr>
                         <div>

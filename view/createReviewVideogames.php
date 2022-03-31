@@ -30,14 +30,7 @@ $title = "CreateReviewVideogames";
         <?php }
         ?>
     </select>
-        <select name="type">
-            <?php
-            foreach ($platforms as $platform) { //affiche les reviews
-                ?>
 
-                <option value=<?=$platform['id']?>><?=$platform['type']?></option>
-            <?php } ?>
-        </select>
         </span>
         <br><br>
         <label>Titre :</label>

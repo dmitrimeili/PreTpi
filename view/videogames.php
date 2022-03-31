@@ -18,7 +18,7 @@ $title="Videogames";
         <form action="index.php?action=Videogames" method="post">
         <select name="type">
             <?php
-        foreach ($platforms as $platform) { //affiche les reviews?>
+        foreach ($platforms as $platform) { //affiche les Console?>
             <option value=<?=$platform['id']?>><?=$platform['type']?></option>
              <?php } ?>
         </select>
