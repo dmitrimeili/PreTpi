@@ -13,9 +13,10 @@ function ReviewDetailsFilms($id)
     require_once 'view/detailedreviewsfilms.php';
 }
 
-function ReviewDetailsGames($id)
+function ReviewDetailsGames($id,$videogamesId)
 {
     $review = getReviewGames($id);
+    $videogames = getCategoriesVideogames($videogamesId);
 
     require_once 'view/detailedreviewsvideogames.php';
 }

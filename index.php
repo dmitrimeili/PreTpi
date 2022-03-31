@@ -59,10 +59,11 @@ switch ($page) {
         $reviewid = $_GET['id'];
         $reviewfilm = $_GET['Films_id'];
         $reviewVideogames = $_GET['VideoGames_id'];
+
         if ($reviewfilm != "") {
             ReviewDetailsFilms($reviewid);
         } else if ($reviewVideogames != "") {
-            ReviewDetailsGames($reviewid);
+            ReviewDetailsGames($reviewid,$reviewVideogames);
         }
         break;
     case "Logout";

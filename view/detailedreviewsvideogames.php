@@ -5,13 +5,24 @@
  * Project : PreTpi
  */
 ob_start();
-$title="ReviewDetailsVideogames";
+$title = "ReviewDetailsVideogames";
 
 ?>
 <div>
-    Titre : <?= $review['title'] ?><br>
-    Jeux : <?= $review['name'] ?><br>
-    Console : <?=$review['type']?>
+    <div>
+        <h1><?= $review['name'] ?></h1><br>
+        <h2>Titre : <?= $review['title'] ?></h2>
+    </div>
+    Console : <?= $review['type'] ?><br>
+    Critique : <?= $review['review'] ?><br>
+    Utilisateur : <?= $review['email'] ?><br>
+    Date de sortie du jeux : <?= $review['releasedate'] ?><br>
+    Date de publication : <?= $review['date'] ?><br>
+    Developeur : <?= $review['companyname'] ?><br>
+    Genre :
+    <?php foreach ($videogames as $videogame) {
+        echo " " . $videogame['Genre'] . ", ";
+    }; ?>
 
 </div>
 <?php
