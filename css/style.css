@@ -105,4 +105,19 @@ div.well{
     float: right;
     width:50%;
 }
+.content {
+    max-width: 50%;
+    margin: auto;
+    display : block;
+
+}
+.rounded {
+    border-radius: 25px;
+    border-style: solid;
+    border-color: lightgrey;
+}
+.border{
+
+}
+
 /* Modified from: https://github.com/mukulkant/Star-rating-using-pure-css */

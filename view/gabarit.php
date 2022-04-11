@@ -17,6 +17,7 @@ require_once "helpers/helpers.php";
     <link rel="stylesheet" href="css/style.css">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+    <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
 
 </head>
 <body>
@@ -36,11 +37,11 @@ require_once "helpers/helpers.php";
     </div>
 </nav>
 
-<div class="btn-group" style="width:100%; text-align: center ">
-    <a href="index.php?action=Videogames"> <button style="width:24%" >Jeux Video</button></a>
-    <a href="index.php?action=Series"><button style="width:24%">Série</button></a>
-    <a href="index.php?action=Films"> <button style="width:24%">Film</button></a>
-    <a href="index.php?action=Books"><button style="width:24%">Livre</button></a>
+<div class="btn-group " style="width:100%; text-align: center ">
+    <a href="index.php?action=Videogames"> <button style="width:24%" class="rounded w3-hover-shadow" >Jeux Video</button></a>
+    <a href="index.php?action=Series"><button style="width:24%" class="rounded w3-hover-shadow">Série</button></a>
+    <a href="index.php?action=Films"> <button style="width:24%" class="rounded w3-hover-shadow">Film</button></a>
+    <a href="index.php?action=Books"><button style="width:24%" class="rounded w3-hover-shadow">Livre</button></a>
 </div>
 <?= flashMessage(); ?>
 <div>

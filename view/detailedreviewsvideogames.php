@@ -8,7 +8,7 @@ ob_start();
 $title = "ReviewDetailsVideogames";
 
 ?>
-<div>
+<div class="content ">
 
     <h1><?= $review['name'] ?></h1><br><br>
     <div class="left" style="width: 75%">
@@ -28,7 +28,8 @@ $title = "ReviewDetailsVideogames";
             echo " " . $videogame['Genre'] . ", ";
         }; ?>
     </div>
-</div>
+
+</>
 <?php
 $content = ob_get_clean();
 require "gabarit.php";
