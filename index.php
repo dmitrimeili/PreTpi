@@ -57,7 +57,7 @@ switch ($page) {
         break;
     case"ReviewDetails";
         $reviewid = $_GET['id'];
-        $reviewfilm = $_GET['Films_id'];
+        $reviewfilm = $_GET['Films_id'] ?? '';
         $reviewVideogames = $_GET['VideoGames_id'];
 
         if ($reviewfilm != "") {  // condition pour afficher le critique par rapport au jeux video, film etc
