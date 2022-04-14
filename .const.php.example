@@ -6,8 +6,8 @@
  * File : .const.php
  */
 
-$user="meili_PreTpi";
-$pass='mdpSwisscenter2021*';
+$user="";
+$pass='';
 $dbhost='localhost';
 $dbname='meili_PreTpi';
 
