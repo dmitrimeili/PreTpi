@@ -113,7 +113,8 @@ function getReviewByType($id)
         $query = ' select * from reviews
         inner join videogames ON reviews.VideoGames_id = videogames.id
         inner join platforms ON videogames.Platforms_id = platforms.id
-        where platforms.id = :id ';
+        where platforms.id = :id 
+        where approuved = 0';
         $statement = $dbh->prepare($query);//prepare query
         $statement->execute(['id' => $id]);//execute query
         $queryResult = $statement->fetchAll(PDO::FETCH_ASSOC);//prepare result for client
