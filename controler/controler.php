@@ -105,7 +105,7 @@ function SendMail($email,$firstname)
 // send email
         mail($email, "Inscription MediaCritk", $msg,$headers);
 
-   
+
 
 
 }
