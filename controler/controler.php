@@ -104,13 +104,8 @@ function SendMail($email,$firstname)
         $newemail = $_SESSION['email'];
 // send email
         mail($email, "Inscription MediaCritk", $msg,$headers);
-    if(@mail($email, "My subject", $msg,$headers))
-    {
-        echo "Mail Sent Successfully";
-    }else{
-        echo "Mail Not Sent";
-    }
-    Home();
+
+   
 
 
 }
