@@ -27,10 +27,7 @@ require_once "helpers/helpers.php";
         <div class="navbar-header">
             <a class="navbar-brand" href="index.php?action=default">Home</a>
         </div>
-        <ul class="nav navbar-nav">
 
-            <li><a href="index.php?action=SendMail">Send Mail</a></li>
-        </ul>
         <ul class="nav navbar-nav navbar-right">
             <?= login_bt();?>
         </ul>

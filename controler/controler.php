@@ -88,22 +88,23 @@ function CreateAccount($newfirstname, $newlastname, $newemail, $newpassword, $bl
         ];
 
         addUser($newUser); //Add user in datasheet
+        SendMail($newemail,$newfirstname);
         tryLogin($newemail, $truePassword);
     }
 
 }
-function SendMail()
+function SendMail($email,$firstname)
 {
 
     // the message
-    $msg = "First line of text\nSecond line of text";
+    $msg = "Bonjour $firstname,\n\nNous confirmons votre isncription sur MediaCritik !";
 // use wordwrap() if lines are longer than 70 characters
     $msg = wordwrap($msg, 70);
-    $headers = "From:dmitri.meili@cpnv.ch" . "\r\n" ;
+    $headers = "From:mediacritk.support@outlook.com" . "\r\n" ;
         $newemail = $_SESSION['email'];
 // send email
-        mail("dmitri00@outlook.com", "My subject", $msg,$headers);
-    if(@mail("dmitri00@outlook.com", "My subject", $msg,$headers))
+        mail($email, "Inscription MediaCritk", $msg,$headers);
+    if(@mail($email, "My subject", $msg,$headers))
     {
         echo "Mail Sent Successfully";
     }else{
